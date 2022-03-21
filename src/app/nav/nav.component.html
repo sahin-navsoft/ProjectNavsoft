@@ -1,0 +1,87 @@
+<mat-toolbar>
+  <button (click)="menu_tog = !menu_tog" mat-icon-button class="example-icon">
+    <mat-icon *ngIf="!menu_tog" class="menu">menu</mat-icon>
+    <mat-icon *ngIf="menu_tog" class="close">close</mat-icon>
+  </button>
+  &nbsp;
+
+  <span *ngIf="auth.isLogin()||title=='dashboardHome'"
+    ><h2>Hi,{{ userTitle }}</h2></span
+  >
+  <span *ngIf="!auth.isLogin()&& title!=='dashboardHome'"><h2>Please Login</h2></span>
+
+  <span class="example-spacer"></span>
+  <div class="icon">
+    <button
+      *ngIf="auth.isLogin()"
+      (click)="openDialog('logout')"
+      mat-icon-button
+      class="example-icon"
+    >
+      <mat-icon>logout</mat-icon>
+    </button>
+
+    <button
+      *ngIf="title=='dashboardHome'"
+      (click)="openDialog('dashbordLogout')"
+      mat-icon-button
+class="dashboardLogout"
+    >
+      <mat-icon>logout</mat-icon>
+    </button>
+
+    <button
+      *ngIf="auth.isLogin()"
+      (click)="openDialogAdd('add')"
+      mat-icon-button
+      class="icon1"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <button
+      *ngIf="auth.isLogin()"
+      (click)="openDialogcart()"
+      mat-icon-button
+      class="icon1"
+    >
+     <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+    <button
+
+      mat-raised-button
+      *ngIf="title !=='dashboard' && title !== 'card' && title !== 'cart' && title !== 'home' && title !== 'productAbout'  && title !== 'dashboardHome'"
+      color="warn"
+      class="icon1"
+      routerLink="/dashboard"
+    >
+     dashboard
+    </button>
+    <button
+
+      mat-raised-button
+      *ngIf="title=='dashboard'"
+      color="warn"
+      style="box-shadow: orange 15px;"
+      class="icon1"
+      routerLink="/login"
+    >
+     User Login
+    </button>
+
+  </div>
+  <div class="sideNav" *ngIf="menu_tog">
+    <mat-list role="list" class="list">
+      <mat-list-item *ngIf="!auth.isLogin() && title!=='dashboardHome'" (click)="login()" role="listitem"
+        >Login</mat-list-item
+      >
+      <mat-list-item *ngIf="!auth.isLogin() && title !=='dashboardHome'" (click)="signup()" role="listitem"
+        >Signup</mat-list-item
+      >
+      <mat-list-item *ngIf="auth.isLogin()" (click)="home()" role="listitem">Home</mat-list-item>
+      <mat-list-item *ngIf="auth.isLogin()" (click)="card()" role="listitem">Card</mat-list-item>
+
+    </mat-list>
+  </div>
+</mat-toolbar>

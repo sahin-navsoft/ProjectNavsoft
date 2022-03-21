@@ -1,0 +1,207 @@
+<app-nav></app-nav>
+
+<div class="signup">
+  <form [formGroup]="signup" >
+    <mat-card>
+      <mat-card-title>Signup</mat-card-title><br />
+      <table>
+        <tr>
+          <td>
+            <p mat-card-content>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Firstname</mat-label>
+                <input
+                  type="text"
+                  oninput="this.value = this.value.toUpperCase()"
+                  matInput
+                  formControlName="firstname"
+                  placeholder="Ex. pat@example.com"
+                  autocomplete="off"
+                />
+                <mat-error
+                  *ngIf="
+                    signup.controls.firstname.hasError('minlength') &&
+                    !signup.controls.firstname.hasError('required')
+                  "
+                >
+                  Firstname should be minimum 3 character.
+                </mat-error>
+                <mat-error
+                  *ngIf="signup.controls.firstname.hasError('required')"
+                >
+                  Firstname is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </p>
+          </td>
+
+          <td>
+            <p mat-card-content>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Lastname</mat-label>
+                <input
+                  type="text"
+                  oninput="this.value = this.value.toUpperCase()"
+                  matInput
+                  formControlName="lastname"
+                  placeholder="Ex. pat@example.com"
+                  autocomplete="off"
+                />
+                <mat-error
+                  *ngIf="
+                    signup.controls.lastname.hasError('minlength') &&
+                    !signup.controls.lastname.hasError('required')
+                  "
+                >
+                  Lastname should be minimum 3 character.
+                </mat-error>
+                <mat-error
+                  *ngIf="signup.controls.lastname.hasError('required')"
+                >
+                  Lastname is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p mat-card-content>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  formControlName="email"
+                  placeholder="Ex. pat@example.com"
+                  autocomplete="off"
+                />
+                <mat-error
+                  *ngIf="
+                    signup.controls.email.hasError('Email') &&
+                    !signup.controls.email.hasError('required')
+                  "
+                >
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="signup.controls.email.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </p>
+          </td>
+
+          <td>
+            <p mat-card-content>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Phone No.</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  formControlName="phone"
+                  placeholder="Ex. pat@example.com"
+                  autocomplete="off"
+                />
+                <mat-error
+                  *ngIf="
+                    signup.controls.phone.hasError('pattern') &&
+                    !signup.controls.phone.hasError('required')
+                  "
+                >
+                  Please enter a valid phone address
+                </mat-error>
+                <mat-error *ngIf="signup.controls.phone.hasError('required')">
+                  Phone No is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input
+                  type="password"
+                  matInput
+                  formControlName="password"
+                  placeholder="Ex. pat@example.com"
+                />
+                <mat-error
+                  *ngIf="
+                    signup.controls.password.hasError('pattern') &&
+                    !signup.controls.password.hasError('required')
+                  "
+                >
+                  Please enter a valid password
+                </mat-error>
+
+                <mat-error
+                  *ngIf="
+                    signup.controls.password.hasError('minlength') &&
+                    !signup.controls.password.hasError('required')
+                  "
+                >
+                  Password should be minimum 8 character.
+                </mat-error>
+
+                <mat-error
+                  *ngIf="signup.controls.password.hasError('required')"
+                >
+                  password is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </p>
+          </td>
+          <td>
+          <mat-radio-group formControlName="gender">
+            <mat-label>Gender:</mat-label>
+            &nbsp;
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            &nbsp;
+            <mat-radio-button value="Female">Female</mat-radio-button>
+          </mat-radio-group>
+          <mat-error class=" radio-error"
+          *ngIf="
+            signup.controls.gender.hasError('required').touched">
+            gender is required.
+        </mat-error>
+        </td>
+        </tr>
+      </table>
+
+      <mat-card-actions>
+        <button
+
+          type="submit"
+          (click)="onClick_signup()"
+          mat-flat-button
+          color="primary"
+        >
+          Submit
+        </button>
+&nbsp;
+        <button
+
+          type="submit"
+          (click)="onClick_login()"
+          mat-flat-button
+          color="accent"
+        >
+          Login
+        </button>
+&nbsp;
+        <button
+          type="button"
+          (click)="onClick_reset()"
+          mat-flat-button
+          color="warn"
+        >
+          clear
+        </button>
+      </mat-card-actions>
+
+    </mat-card>
+  </form>
+</div>

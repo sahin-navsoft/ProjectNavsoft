@@ -1,0 +1,123 @@
+<!-- Top navigation bar -->
+<app-nav [title]="pageTitle"></app-nav>
+
+<!-- image slider -->
+`<swiper
+  [spaceBetween]="30"
+  [centeredSlides]="true"
+  [autoplay]="{
+    delay: 2500,
+    disableOnInteraction: false
+  }"
+  [loop]="true"
+  [pagination]="{
+    clickable: true
+  }"
+  [navigation]="true"
+  class="mySwiper"
+>
+  <ng-template swiperSlide>
+  <img src="https://rukminim1.flixcart.com/flap/1688/280/image/861db59aeeabb461.jpg?q=50"/></ng-template
+  ><ng-template swiperSlide><img src="https://rukminim1.flixcart.com/flap/1688/280/image/a29f9d3e0882bb25.jpg?q=50"/></ng-template
+  ><ng-template swiperSlide><img src="https://rukminim1.flixcart.com/flap/1688/280/image/99248a5099f3a88d.jpeg?q=50"/></ng-template
+  ><ng-template swiperSlide><img src="https://rukminim1.flixcart.com/flap/1688/280/image/d399d6af01728959.jpg?q=50"/></ng-template
+  ><ng-template swiperSlide><img src="https://rukminim1.flixcart.com/flap/1688/280/image/5dd7c5264952fd0a.jpg?q=50"
+  /></ng-template> </swiper>`
+
+<!-- Loader -->
+<div *ngIf="spin" class="spin">
+  <mat-spinner color="warn"></mat-spinner>
+</div>
+
+<!-- all card body -->
+
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div
+    class="card-container"
+    fxLayout="row wrap"
+    fxFlex="75"
+    style="margin-top: 60px"
+  >
+  <!-- card -->
+    <!-- <mat-card
+      class="example-card"
+      fxLayoutAlign="space-between start"
+      fxFlex="calc(23% )"
+      *ngFor="let item of pData"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <div>
+        <div class="title">
+          <mat-card-title class="productTitle">{{ item.title }}</mat-card-title>
+        </div>
+      </div>
+      <div class="cardImage">
+        <img
+          routerLink="/product-about/{{ item.id }}"
+          mat-card-image
+          src="{{ item.image }}"
+          alt=""
+        />
+      </div> -->
+
+      <!-- rate -->
+      <!-- <div class="rate">
+        <table>
+          <tr>
+            <td>
+              <mat-label>Rating:</mat-label>
+            </td>
+            <td>
+              <h4>{{ item.rate }}</h4>
+            </td>
+          </tr>
+        </table>
+      </div> -->
+
+      <!-- action -->
+      <!-- <div class="button">
+        <button
+          mat-raised-button
+          color="warn"
+          routerLink="/product-about/{{ item.id }}"
+        >
+          View
+        </button>
+
+        <button style="margin-right: 10px" mat-raised-button color="accent">
+          Buy Now
+        </button>
+      </div>
+    </mat-card> -->
+    <div class="card-main-body">
+      <div class="container1 card" (click)="onProductDetails(item.id)" *ngFor="let item of pData">
+        <div class="card_left">
+          <!-- <a href="#"><mat-icon aria-hidden="true">arrow_back_ios</mat-icon></a>
+          <a href="#"><mat-icon aria-hidden="true">arrow_forward_ios</mat-icon></a> -->
+          <img  src="{{item.image}}">
+        </div>
+        <div class="card_right">
+          <span>Product</span>
+          <h3>{{item.title|slice:0:75}}</h3>
+          <p>{{item.description|slice:0:200}}</p>
+          <div class="colours">
+            <div class="colour orange active"></div>
+            <div class="colour green"></div>
+            <div class="colour gray"></div>
+          </div>
+          <div class="card_footer">
+            <span class="price">{{item.price|currency:"INR"}}</span>
+            <a (click)="onProductDetails(item.id)" class="btn">
+              View
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<app-footer></app-footer>
+

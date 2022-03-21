@@ -1,0 +1,63 @@
+<div class="main-div-cart">
+  <div *ngIf="spin" class="spin">
+    <mat-spinner diameter="50"></mat-spinner>
+  </div>
+  <div *ngIf="divShow == false">
+    <img
+      style="margin-left: 80px; width: 400px"
+      src="../../assets/emptyCart.png"
+      alt=""
+    />
+    <h2 style="margin-left: 37%"><strong>Cart is Empty</strong></h2>
+  </div>
+
+  <div *ngIf="divShow !== false" class="cart-item">
+
+    <mat-card class="mat-card-cart" *ngFor="let item of cartData">
+      <table class="table">
+        <tr>
+
+            <td class="img-box">
+              <img class="p-image" src="{{ item.image }}" alt="" />
+            </td>
+
+
+            <td class="title" style="width: 120px;left: 10px;">
+              <p>
+                {{ item.title}}
+              </p>
+            </td>
+
+
+            <td class="price" style="left: 15px; width: 60px;">
+              <p>
+               <b>Price:-</b> {{ item.price|currency:"INR" }}
+              </p>
+            </td>
+
+
+
+
+            &nbsp;
+            <td style="padding-left: 200px;">
+              <button mat-fab color="warn" (click)="deleteCartItem(item.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+
+        </tr>
+      </table>
+    </mat-card>
+  <mat-card  style="box-shadow: none;">
+    <mat-card-content>
+      <h3>Price:- &nbsp;{{totalPrice|currency:"INR"}}</h3>
+      <h3>Delivery Charges:- &nbsp;{{DeliveryCharges|currency:"INR"}}</h3>
+      <hr>
+    </mat-card-content>
+    <h1>Total:- &nbsp;{{total|currency:"INR"}}</h1>
+    <button mat-flat-button color="primary" (click)="buyNow()">
+      Buy Now
+    </button>
+  </mat-card>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+.mat-card{
+  width: 400px;
+  height: inherit;
+  margin-top: 5px;
+background-color: rgb(255, 255, 255);
+border: 1px solid black;
+}
+
+.form-group label{
+  margin-top: 10px;
+  /* color: aliceblue; */
+}
+.form-group button{
+  margin-top: 10px;
+}
+
+.parent {
+  position: relative;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  margin-top: 10%;
+}
+b.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 50%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.parent #form{
+border: 1px solid black;
+z-index: 1;
+}
+
+
+.body{
+width: 100%;
+position: relative;
+}
+/* .body .spinner{
+  position: absolute;
+  z-index: 10;
+  left: 46vw;
+  top: 40vh;
+} */
+.spin{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+}

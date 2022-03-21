@@ -1,0 +1,143 @@
+.sideNav{
+  width: 300px;
+  height: 100rem;
+  position: fixed;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+font-size: 15px;
+  top: 63px;
+  z-index: 11;left: 0;
+  /* background: #3CA55C;  /* fallback for old browsers */
+
+ background-color: #FA8BFF;
+  background-image: linear-gradient(360deg, #FA8BFF -10%, #2BD2FF 22%, #00ff37 100%);
+
+}
+.list>mat-list-item{
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  margin-top: 2rem;
+  box-sizing: border-box;
+  padding: 0 16px;
+
+  position: relative;
+  height: inherit;
+
+}
+.list>mat-list-item:hover{
+  transition:100ms ease-in-out;
+  color: #ffffff;
+
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: #FA8BFF;
+  background-image: linear-gradient(240deg, #FA8BFF -20%, #2BD2FF 32%, #00ff37 70%);
+font-size: 15px;
+
+}
+.icon{
+  margin-left:90%;
+  position: absolute;
+  color: rgb(255, 255, 255);
+}
+
+mat-list-item{
+  cursor: pointer;
+}
+
+mat-icon{
+align-items: center;
+}
+h2{
+  color:rgb(255, 255, 255);
+  background-color: none;
+  font-size: 1.3rem;
+}
+.icon1{
+margin-left: 10px;
+size: 50px;
+}
+.menu{
+  color: #ffffff;
+  font-size: 30px;
+}
+.close{
+  color: #F3904F;
+  font-size: 30px;
+}
+
+@media screen and (max-width:1300px) {
+  .icon{
+    margin-left:80%;
+    position: absolute;
+    color: rgb(0, 0, 0);
+  }
+  .menu{
+    color: #ffffff;
+
+  }
+}
+@media screen and (max-width:900px) {
+  .sideNav{
+    width: 100vw;
+    height: 20rem;
+    position: fixed;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+  font-size: 15px;
+    top: 56px;
+    z-index: 11;left: 0;
+    background-color: #FA8BFF;
+    background-image: linear-gradient(180deg, #FA8BFF -35%, #2BD2FF 32%, #2BFF88 70%);
+  }
+  .icon{
+    margin-left:70%;
+    position: absolute;
+    color: rgb(0, 0, 0);
+  }
+}
+@media screen and (max-width:554px) {
+  .sideNav{
+    width: 100vw;
+    height: 20rem;
+    position: fixed;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+  font-size: 15px;
+    top: 56px;
+    z-index: 11;left: 0;
+    background-color: #FA8BFF;
+    background-image: linear-gradient(180deg, #FA8BFF -35%, #2BD2FF 32%, #2BFF88 70%);
+  }
+  h2{
+    color:rgb(255, 255, 255);
+    background-color: none;
+    font-size: 1rem;
+  }
+  .icon{
+    margin-left:60%;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+
+  }
+  .menu{
+    color: #ffffff;
+    font-size: 25px;
+  }
+  .close{
+    color: red;
+    font-size: 25px;
+  }
+
+}
+.dashboardLogout{
+  margin-left: 90%;
+}

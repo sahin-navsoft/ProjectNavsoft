@@ -1,0 +1,36 @@
+<app-nav [title]="pageTitle"></app-nav>
+
+<!-- product about -->
+
+<div class="main-div">
+  <mat-card class="product-image">
+    <img mat-card-image src="{{ pData.image }}" alt="" />
+  </mat-card>
+  <mat-card class="product-details">
+    <div class="product-desc-container">
+      <mat-card-content>
+        <h2 mat-card-title>
+          {{ pData.title }}
+        </h2>
+        <p mat-card-subtitle>{{ pData.description }}</p>
+        <div style="margin-top: 35px; color: rgb(61, 221, 61); font-size: 20px">
+          <label style="color: azure">Price:-</label>
+          <h2>{{ pData.price | currency: "INR" }}</h2>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          id="add-to-cart"
+          (click)="add_to_cart()"
+        >
+          Add to Cart
+        </button>
+        <button mat-raised-button color="warn" id="buy-now" (click)="buyNow()">Buy Now</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</div>
+

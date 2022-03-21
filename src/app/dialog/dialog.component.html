@@ -1,0 +1,41 @@
+<span *ngIf="spin" color="accent" class="spin"><mat-spinner></mat-spinner></span>
+<div *ngIf="type=='card' || type=='home' || type=='productAbout'">
+  <h1 mat-dialog-title>logout confirmation</h1>
+  <div mat-dialog-content>
+    <p>Do you want to logout</p>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="primary" (click)="onNoClick()">No Thanks</button>
+    <button mat-button  cdkFocusInitial color="warn" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+
+<div *ngIf="type=='delete'">
+  <h1 mat-dialog-title>delete</h1>
+<div mat-dialog-content>
+  <p>Do you want to delete this user</p>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="onNoClick()">No Thanks</button>
+  <button mat-button  cdkFocusInitial color="warn" (click)="delete_user(data.id)">delete</button>
+</div>
+</div>
+
+
+<div *ngIf="type=='dashboardHome'">
+  <h1 mat-dialog-title>logout confirmation</h1>
+  <div mat-dialog-content>
+    <p>Do you want to logout</p>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="primary" (click)="onNoClick()">No Thanks</button>
+    <button mat-button  cdkFocusInitial color="warn" (click)="dashboardLogout()">Logout</button>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,60 @@
+<div>
+  <app-nav [title]="pageTitle"></app-nav>
+</div>
+<div style="width:100%;height: 100%;position: relative;display: grid;place-items: center;">
+  <div style="margin-top:100px; width: 400px;height: 700;">
+    <mat-card style="width: 100%;display: grid; place-items: center; box-shadow: rgb(173, 172, 172) 0px 0px 10px 10px;">
+      <mat-card-header style="display: block;">
+        <h1 style="color: rgb(0, 0, 0);font-family:'Courier New', Courier, monospace;background-color: rgb(31, 231, 121);padding: 0px 140px 0px 130px;margin-left: 0;">Admin</h1>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="example-form" [formGroup]="adminLogin">
+          <div style="width: 300px; padding: 20px;">
+
+            <mat-form-field class="example-full-width"  style="width: 100%;" >
+              <mat-label>Email</mat-label>
+              <input type="email" matInput autocomplete="off" formControlName="email" placeholder="Ex. pat@example.com">
+              <mat-error *ngIf="adminLogin.controls.email.hasError('email') && !adminLogin.controls.email.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="adminLogin.controls.email.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div style="padding: 20px;">
+            <mat-form-field class="example-full-width" style="width: 100%;" >
+              <mat-label>Password</mat-label>
+              <input type="password" autocomplete="off" matInput formControlName="password" placeholder="Ex. pat@example.com">
+              <mat-error *ngIf="adminLogin.controls.password.hasError('pattern') && !adminLogin.controls.password.hasError('required')">
+                Please enter a valid password
+              </mat-error>
+              <mat-error *ngIf="adminLogin.controls.password.hasError('minlength')">
+                minimum 8 letters
+              </mat-error>
+              <mat-error *ngIf="adminLogin.controls.password.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+          </div>
+
+
+
+      </form>
+      </mat-card-content>
+       <mat-card-actions>
+         <button [disabled]="!adminLogin.valid" style="font-size: 15px;padding: 0px 30px 0px 30px;" (click)="onClickDashboard()" mat-raised-button color="primary" type="submit">login</button>
+       </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>
+
+
+<div style="bottom: 0;">
+  <app-footer style="top: 200px;"></app-footer>
+</div>
+
+

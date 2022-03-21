@@ -1,0 +1,59 @@
+<app-nav></app-nav>
+<div class="login"  style="box-shadow: rgb(132, 255, 94) 25px;">
+  <form [formGroup]="login" (ngSubmit)="onClick_login()">
+    <mat-card>
+      <mat-card-title>Login</mat-card-title>
+      <p mat-card-content>
+        <mat-form-field class="example-full-width" >
+            <mat-label>Username</mat-label>
+          <input type="email" matInput formControlName="email" placeholder="Ex. pat123"
+             />
+          <mat-error *ngIf="
+              login.controls.email.hasError('email') &&
+              !login.controls.email.hasError('required')
+            ">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="login.controls.email.hasError('required')">
+            Username is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="example-full-width" >
+          <mat-label>Password</mat-label>
+          <input type="password"  matInput formControlName="password" placeholder="Ex. pat@example.com" />
+          <mat-error *ngIf="
+              login.controls.password.hasError('pattern') &&
+              !login.controls.password.hasError('required')
+            ">
+            Please enter a valid password
+          </mat-error>
+
+          <mat-error *ngIf="
+              login.controls.password.hasError('minlength') &&
+              !login.controls.password.hasError('required')
+            ">
+            Password should be minimum 8 character.
+          </mat-error>
+
+          <mat-error *ngIf="login.controls.password.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <mat-card-actions>
+        <button  type="submit" (click)="onClick_login()" mat-flat-button color="primary">
+          Login
+        </button>
+        &nbsp;
+        <button  type="submit" color="warn" (click)="onClick_signup()" mat-flat-button color="warn">
+          signup
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
+
+<app-footer></app-footer>

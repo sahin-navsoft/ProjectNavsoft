@@ -1,0 +1,32 @@
+.p-image {
+  width: 65px;
+  height: 65px;
+}
+.img-box {
+  width: 70px;
+  height: 70px;
+
+  display: grid;
+  place-items: center;
+}
+.title p {
+  margin-left: 25px;
+}
+.btn-cart-buy button:hover {
+  background-color: yellow;
+  color: black;
+}
+.spin {
+  position: absolute;
+  top: 47%;
+  left: 47%;
+}
+.spin mat-spinner {
+  width: 100px;
+}
+.mat-card-cart {
+  box-shadow: none;
+  margin-bottom: 5px;
+  border: 1px solid gray;
+}
+

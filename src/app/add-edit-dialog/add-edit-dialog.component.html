@@ -1,0 +1,368 @@
+<!-- Loader -->
+<div *ngIf="spin" class="spin">
+  <mat-spinner color="warn"></mat-spinner>
+</div>
+
+<!-- Edit dialog -->
+
+<div class="edit" *ngIf="type == 'edit'">
+  <h1 mat-dialog-title>Edit Employee</h1>
+  <form novalidate class="example-form" [formGroup]="addEditForm">
+    <div mat-dialog-content>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="name"
+          placeholder="Ex.Mark"
+          autocomplete="off"
+        />
+        <mat-error *ngIf="addEditForm.controls.name.hasError('required')">
+          Name is required
+        </mat-error>
+        <mat-error
+          *ngIf="
+            addEditForm.controls.name.hasError('minlength') &&
+            !addEditForm.controls.name.hasError('required')
+          "
+        >
+          Please enter atleast 3 characters
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Ex. pat@example.com"
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            addEditForm.controls.email.hasError('email') &&
+            !addEditForm.controls.email.hasError('required')
+          "
+        >
+          Please enter a valid email city
+        </mat-error>
+        <mat-error *ngIf="addEditForm.controls.email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>mobile</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="mobile"
+          placeholder="Ex. 1234567890"
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            addEditForm.controls.mobile.hasError('required') &&
+            addEditForm.controls.mobile
+          "
+        >
+          mobile number is <strong>required</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="
+            addEditForm.controls.mobile.hasError('pattern') &&
+            !addEditForm.controls.mobile.hasError('required')
+          "
+        >
+          Please enter a valid mobile number
+        </mat-error>
+        <mat-error
+          *ngIf="
+            addEditForm.controls.mobile.hasError('minlength') &&
+            !addEditForm.controls.mobile.hasError('required') &&
+            !addEditForm.controls.mobile.hasError('pattern')
+          "
+        >
+          mobile number should be minimum 10 digits
+        </mat-error>
+        <mat-error
+          *ngIf="
+            addEditForm.controls.mobile.hasError('maxlength') &&
+            !addEditForm.controls.mobile.hasError('required') &&
+            !addEditForm.controls.mobile.hasError('pattern')
+          "
+        >
+          mobile number should be maximum 13 digits
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <table>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>country</mat-label>
+              <input
+                type="text"
+                matInput
+                formControlName="country"
+                placeholder="Ex. software"
+                autocomplete="off"
+              />
+              <mat-error
+                *ngIf="
+                  addEditForm.controls.country.hasError('minlength') &&
+                  !addEditForm.controls.country.hasError('required')
+                "
+              >
+                Please enter a valid country
+              </mat-error>
+              <mat-error
+                *ngIf="addEditForm.controls.country.hasError('required')"
+              >
+                country is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Date of Joining</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="date" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <br />
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>city</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="city"
+          placeholder="Ex. kolkata"
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            addEditForm.controls.city.hasError('minlength') &&
+            !addEditForm.controls.city.hasError('required')
+          "
+        >
+          Please enter a valid city
+        </mat-error>
+        <mat-error *ngIf="addEditForm.controls.city.hasError('required')">
+          city is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button
+        [disabled]="!addEditForm.valid"
+        (click)="onSubmit()"
+        type="submit"
+        mat-raised-button
+        color="primary"
+      >
+        Update
+      </button>
+
+      <button (click)="onCancel()" type="button" mat-button color="primary">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- Add Dialog  -->
+
+<div class="add" *ngIf="type == 'add'">
+  <h1 mat-dialog-title>Edit Employee</h1>
+  <form novalidate class="example-form" [formGroup]="addEditForm">
+    <div mat-dialog-content>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="name"
+          placeholder="Ex.Mark"
+          autocomplete="off"
+        />
+        <mat-error *ngIf="addEditForm.controls.name.hasError('required')">
+          Name is required
+        </mat-error>
+        <mat-error
+          *ngIf="
+            addEditForm.controls.name.hasError('minlength') &&
+            !addEditForm.controls.name.hasError('required')
+          "
+        >
+          Please enter atleast 3 characters
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Ex. pat@example.com"
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            addEditForm.controls.email.hasError('email') &&
+            !addEditForm.controls.email.hasError('required')
+          "
+        >
+          Please enter a valid Email
+        </mat-error>
+        <mat-error *ngIf="addEditForm.controls.email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>mobile</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="mobile"
+          placeholder="Ex. 1234567890"
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            addEditForm.controls.mobile.hasError('required') &&
+            addEditForm.controls.mobile
+          "
+        >
+          mobile number is <strong>required</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="
+            addEditForm.controls.mobile.hasError('pattern') &&
+            !addEditForm.controls.mobile.hasError('required')
+          "
+        >
+          Please enter a valid mobile number
+        </mat-error>
+        <mat-error
+          *ngIf="
+            addEditForm.controls.mobile.hasError('minlength') &&
+            !addEditForm.controls.mobile.hasError('required') &&
+            !addEditForm.controls.mobile.hasError('pattern')
+          "
+        >
+          mobile number should be minimum 10 digits
+        </mat-error>
+        <mat-error
+          *ngIf="
+            addEditForm.controls.mobile.hasError('maxlength') &&
+            !addEditForm.controls.mobile.hasError('required') &&
+            !addEditForm.controls.mobile.hasError('pattern')
+          "
+        >
+          mobile number should be maximum 13 digits
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <table>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>country</mat-label>
+              <input
+                type="text"
+                matInput
+                formControlName="country"
+                placeholder="Ex. software"
+                autocomplete="off"
+              />
+              <mat-error
+                *ngIf="
+                  addEditForm.controls.country.hasError('minlength') &&
+                  !addEditForm.controls.country.hasError('required')
+                "
+              >
+                Please enter a valid country
+              </mat-error>
+              <mat-error
+                *ngIf="addEditForm.controls.country.hasError('required')"
+              >
+                country is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Date of Joining</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="date" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <br />
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>city</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="city"
+          placeholder="Ex. kolkata"
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            addEditForm.controls.city.hasError('minlength') &&
+            !addEditForm.controls.city.hasError('required')
+          "
+        >
+          Please enter a valid city
+        </mat-error>
+        <mat-error *ngIf="addEditForm.controls.city.hasError('required')">
+          city is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button
+        [disabled]="!addEditForm.valid"
+        (click)="onAddSubmit()"
+        type="submit"
+        mat-raised-button
+        color="primary"
+      >
+        ADD
+      </button>
+
+      <button (click)="onCancel()" type="button" mat-button color="primary">
+        Cancel
+      </button>
+
+    </div>
+  </form>
+</div>

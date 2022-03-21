@@ -1,0 +1,36 @@
+mat-card{
+  width: 500px;
+  height: 400px;
+  display: grid;
+  place-items: center;
+  border: 1px solid  rgb(69, 255, 94);
+  border-radius: 15px;
+}
+.signup{
+  display: grid;
+  place-items: center;
+  padding-top:4vmax;
+  background-color: rgb(211, 207, 207);
+  height: 90%;
+}
+.example-full-width{
+  width: 200px;
+}
+mat-label{
+  color: black;
+  font-size:15px;
+}
+mat-radio-button{
+  font-size: 15px;
+  color: black;
+}
+
+mat-card-title{
+  color: rgb(56, 185, 95);
+}
+mat-radio-group{
+  margin-left: 8px;
+}
+.radio-error{
+  margin-left: 10px;
+}

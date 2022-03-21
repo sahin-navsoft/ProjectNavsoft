@@ -1,0 +1,16 @@
+
+.mat-elevation-z8{
+  width: 100vmax;
+  top: 50px;
+  color: black;
+}
+table{
+  width: 100vw;
+}
+.spin{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+
+}
+
